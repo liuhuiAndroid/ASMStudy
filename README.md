@@ -1,5 +1,5 @@
 # ASMStudy
-1. [bilibili 字节码插桩技术实现自动化方法耗时记录](https://www.bilibili.com/video/BV1Tv4y1f7h4?p=1)
+1. [bilibili 字节码插桩技术实现自动化方法耗时记录](https://www.bilibili.com/video/BV1Tv4y1f7h4?p=1)和[字节码增强技术探索](https://tech.meituan.com/2019/09/05/java-bytecode-enhancement.html)配合食用
 
    ASM使用
 
@@ -20,7 +20,7 @@
       2. Android打包流程：Gradle Transform
       3. 其他场景
 
-2. [一起玩转 Android 项目中的字节码](https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650244795&idx=1&sn=cdfc4acec8b0d2b5c82fd9d884f32f09&chksm=886377d4bf14fec2fc822cd2b3b6069c36cb49ea2814d9e0e2f4a6713f4e86dfc0b1bebf4d39&mpshare=1&scene=1&srcid=1217NjDpKNvdgalsqBQLJXjX%23rd)
+2. [一起玩转 Android 项目中的字节码](https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650244795&idx=1&sn=cdfc4acec8b0d2b5c82fd9d884f32f09&chksm=886377d4bf14fec2fc822cd2b3b6069c36cb49ea2814d9e0e2f4a6713f4e86dfc0b1bebf4d39&mpshare=1&scene=1&srcid=1217NjDpKNvdgalsqBQLJXjX%23rd) -> OkHttp-Plugin
 
 3. 慕课网Android 应用程序构建实战原理精讲：第六章字节码插桩实现路由组件自动注册
 
@@ -29,8 +29,6 @@
 5. 极客时间之Android开发高手课《编译插桩的三种方法：AspectJ、ASM、ReDex》
 
 6. 极客时间之Android开发高手课《练习Sample跑起来 | ASM插桩强化练习》
-
-7. [字节码增强技术探索](https://tech.meituan.com/2019/09/05/java-bytecode-enhancement.html)
 
 8. [深入探索编译插桩技术（四、ASM）](https://juejin.im/post/5e8d87c4f265da47ad218e6b)
 
@@ -42,8 +40,8 @@
 
 #### 开源框架：
 
+1. 基于 ASM 的字节码处理工具：[Hunter](https://github.com/Leaking/Hunter)
 1. [ByteX](https://github.com/bytedance/ByteX) 是一个基于gradle transform api和ASM的字节码插件平台
-2. 基于 ASM 的字节码处理工具：[Hunter](https://github.com/Leaking/Hunter)
 
 #### docker搭建maven
 
@@ -89,12 +87,6 @@ afterEvaluate {
     }
 }
 ```
-
-#### 结合视频和美团文章发一篇文章
-
-#### Okhttp ASM
-
-#### 梳理PPT
 
 #### 参考：
 
