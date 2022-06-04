@@ -34,17 +34,68 @@
 
 8. [深入探索编译插桩技术（四、ASM）](https://juejin.im/post/5e8d87c4f265da47ad218e6b)
 
-概念：
+#### 概念：
 
 1. ClassReader：用于读取已经编译好的.class文件。
 2. ClassWriter：用于重新构建编译后的类，如修改类名、属性以及方法，也可以生成新的类的字节码文件。
 3. 各种Visitor类：如上所述，CoreAPI根据字节码从上到下依次处理，对于字节码文件中不同的区域有不同的Visitor，比如用于访问方法的MethodVisitor、用于访问类变量的FieldVisitor、用于访问注解的AnnotationVisitor等。为了实现AOP，重点要使用的是MethodVisitor。
 
-开源框架：
+#### 开源框架：
 
 1. [ByteX](https://github.com/bytedance/ByteX) 是一个基于gradle transform api和ASM的字节码插件平台
 2. 基于 ASM 的字节码处理工具：[Hunter](https://github.com/Leaking/Hunter)
 
-参考：
+#### docker搭建maven
+
+```shell
+# use klo2k/nexus3 version of Nexus on ARM
+docker pull klo2k/nexus3
+docker run -d -p 8081:8081 --name nexus klo2k/nexus3
+docker ps
+docker exec -it 920 /bin/bash
+cd /nexus-data/
+cat admin.password
+# 2506c122-1412-4863-ac9e-4daa41812d63
+curl http://localhost:8081/
+# 配置阿里云公共仓库，参考：https://blog.csdn.net/ThinkWon/article/details/94346681
+# 地址：http://192.168.1.3:8081/repository/maven-snapshots/
+```
+
+#### 发布gradle插件到maven
+
+```shell
+# 上传脚本
+apply plugin: 'maven-publish'
+afterEvaluate {
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId = "com.imooc.router"
+                artifactId = 'router-gradle-plugin'
+                version = '0.0.1-SNAPSHOT'
+                description 'library for android'
+            }
+        }
+        repositories {
+            maven {
+                allowInsecureProtocol = true
+                url = 'http://192.168.1.3:8081/repository/maven-snapshots/'
+                credentials {
+                    username = 'admin'
+                    password = 'qwer1234'
+                }
+            }
+        }
+    }
+}
+```
+
+#### 结合视频和美团文章发一篇文章
+
+#### Okhttp ASM
+
+#### 梳理PPT
+
+#### 参考：
 
 1. **[Awesome-Android-Architecture](https://github.com/JsonChao/Awesome-Android-Architecture)**

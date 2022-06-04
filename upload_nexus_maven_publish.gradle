@@ -1,0 +1,38 @@
+apply plugin: 'maven-publish'
+
+afterEvaluate {
+    publishing {
+        task androidSourcesJar(type: Jar) {
+            archiveClassifier.convention('sources')
+            archiveClassifier.set('sources')
+            from android.sourceSets.main.java.srcDirs
+        }
+
+        publications {
+            release(MavenPublication) {
+                groupId = POM_GROUP_ID
+                artifactId = POM_ARTIFACT_ID
+                version = VR_VERSION_NAME
+                // 必须有这个 否则不会上传AAR包
+                afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+                // 上传源码
+                artifact androidSourcesJar
+            }
+        }
+
+        repositories {
+            // 定义一个 maven 仓库
+            maven {
+                //允许使用 http
+                allowInsecureProtocol = true
+                // 根据 versionName 来判断仓库地址
+                url = PLUGIN_VERSION_NAME.endsWith('SNAPSHOT') ? SNAPSHOT_REPOSITORY_URL : RELEASE_REPOSITORY_URL
+                // 仓库用户名密码
+                credentials {
+                    username = NEXUS_USERNAME
+                    password = NEXUS_PASSWORD
+                }
+            }
+        }
+    }
+}
