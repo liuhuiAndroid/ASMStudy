@@ -88,6 +88,16 @@ afterEvaluate {
 }
 ```
 
+#### 自定义Gradle插件
+
+1. Gradle中插件分类：
+   1. 脚本插件
+   2. 对象插件：实现了org.gradle.api.Plugin接口的类
+      1. resources/META-INF/gradle-plugins/xxx.properties配置插件映射，可以在使用的时候隐藏类名等细节
+2. **TODO：了解 Android 常用的 Task**，顺便看Gradle官网，添加官方gradle插件依赖查看源码
+3. Transform：通过Gradle插件来注册我们编写的Transform。注册后的Transform会被Gradle包装成一个Gradle Task，这个TransForm Task会在java compile Task执行完毕后运行
+4. [如何开发一款高性能的 gradle transform](https://mp.weixin.qq.com/s/2TTXt5virr2vMNZRlzIT3w)
+
 #### 参考：
 
 1. **[Awesome-Android-Architecture](https://github.com/JsonChao/Awesome-Android-Architecture)**
