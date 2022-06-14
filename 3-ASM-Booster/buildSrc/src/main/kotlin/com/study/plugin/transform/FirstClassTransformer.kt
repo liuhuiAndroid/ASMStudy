@@ -1,4 +1,4 @@
-package com.study.plugin
+package com.study.plugin.transform
 
 import com.didiglobal.booster.transform.TransformContext
 import com.didiglobal.booster.transform.asm.ClassTransformer
