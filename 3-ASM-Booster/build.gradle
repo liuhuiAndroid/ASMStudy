@@ -1,0 +1,33 @@
+buildscript {
+    ext {
+        agp_version = '4.2.2'
+        booster_version = '4.0.0'
+        kotlin_version = '1.4.32'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+        jcenter()
+        maven { url 'https://oss.sonatype.org/content/repositories/public/' }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$agp_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        /* 👇👇👇👇 引用 Booster Gradle 插件 👇👇👇👇 */
+        classpath "com.didiglobal.booster:booster-gradle-plugin:$booster_version"
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+        jcenter()
+        maven { url 'https://oss.sonatype.org/content/repositories/public/' }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    }
+}
